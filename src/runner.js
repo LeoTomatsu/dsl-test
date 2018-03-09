@@ -1,4 +1,5 @@
-/* Author: Leo Tomatsu (leotomatsu@gmail.com)
+/* 
+   Author: Leo Tomatsu (leotomatsu@gmail.com)
    Doc: ../SUBMISSION.md
  */
 
@@ -32,8 +33,7 @@ function dslRuleHandler(node, parentNode, bindings) {
 	 * @param {DslNode} n - The node to execute
 	 * @param {DslNode.bindings} b - Map of every binding in block
 	 * @returns {DslNode.bindings} b - Returns the value that is bound
-	 * 								   to it, defined by its scope it
-	 * 								   is in
+	 * 				   to it, defined by its scope it is in
 	 */
 	function identifierRuleHandler(n, b) {
 		/* return identifier */
@@ -48,8 +48,8 @@ function dslRuleHandler(node, parentNode, bindings) {
 	 * @param {DslNode} pN - The parent node of node to execute
 	 * @param {DslNode.bindings} b - Map of every binding in block
 	 * @returns {DslNode.bindings} Bindings - Defines a reference-able value,
-	 * 								          name that takes on the result
-	 * 								          of executing value
+	 * 					  name that takes on the result
+	 * 					  of executing value
 	 */
 	function assignmentRuleHandler(n, pN, b) {
 		const Bindings = b;
@@ -71,7 +71,7 @@ function dslRuleHandler(node, parentNode, bindings) {
 	 * @param {DslNode} n - The node to execute
 	 * @param {DslNode.bindings} b - Map of every binding in block
 	 * @returns {DslNode} r - Returned the result of the args applied
-	 * 							   to the result of the callee
+	 * 			  to the result of the callee
 	 */
 	function functionRuleHandler(n, b) {
 		/**
@@ -81,8 +81,7 @@ function dslRuleHandler(node, parentNode, bindings) {
 		 *
 		 * @param {DslNode} N - The node to execute
 		 * @param {DslNode.bindings} B - Map of every binding in block
-		 * @returns array [callee, args] - The callee and args are
-		 *                                            executed
+		 * @returns array [callee, args] - The callee and args are executed
 		 */
 		function executeCalleeAndArgs(N, B) {
 			/* determine callee */
@@ -119,7 +118,7 @@ function dslRuleHandler(node, parentNode, bindings) {
 	 *
 	 * @param {DslNode} pN - The parent node to execute
 	 * @param {DslNode.bindings} pB - The parent binding map of every binding in
-	 * 												block
+	 * 				  block
 	 * @returns {DslNode} rB - Return the last line of the result block
 	 */
 	function blockRuleHandler(pN, pB) {
@@ -144,7 +143,7 @@ function dslRuleHandler(node, parentNode, bindings) {
 	 * @param {DslNode} pN - The parentNode to execute
 	 * @param {DslNode.bindings} b - Map of every binding in block
 	 * @returns array r - Returns every element in the nodes of an
-	 * 				      an array that are executed
+	 * 		      an array that are executed
 	 */
 	function arrayRuleHandler(pN, b) {
 		const n = pN.nodes;
